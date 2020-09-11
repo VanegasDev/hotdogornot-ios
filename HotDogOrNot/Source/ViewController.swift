@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var hotdogView: UIView!
     @IBOutlet weak var noHotdogView: UIView!
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private lazy var classificationRequest: VNCoreMLRequest = {
         do {
@@ -49,6 +50,18 @@ class ViewController: UIViewController {
         noHotdogView.isHidden = true
     }
     
+    private func startLoading() {
+        UIView.animate(withDuration: 0.3, animations: { self.imageView.alpha = 0.65 })
+        activityIndicator.startAnimating()
+    }
+    
+    private func stopLoading() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3, animations: { self.imageView.alpha = 1 })
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
     private func presentPhotoPicker(_ sourceType: UIImagePickerController.SourceType) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -58,14 +71,16 @@ class ViewController: UIViewController {
     }
     
     private func classificationHandler(for request: VNRequest, error: Error?) {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             if let error = error {
                 print("There was an error: \(error.localizedDescription)")
+                self?.stopLoading()
                 return
             }
             
             guard let results = request.results as? [VNClassificationObservation], let objectDetected = results.first else {
                 print("There's no results")
+                self?.stopLoading()
                 return
             }
             
@@ -76,12 +91,17 @@ class ViewController: UIViewController {
             } else {
                 UIView.animate(withDuration: 0.3, animations: { self?.noHotdogView.isHidden = false })
             }
+            
+            self?.stopLoading()
         }
     }
     
     private func classify(_ image: UIImage) {
+        startLoading()
+        
         guard let ciImage = CIImage(image: image) else {
             print("Unable to create CIImage")
+            stopLoading()
             return
         }
         
@@ -95,6 +115,7 @@ class ViewController: UIViewController {
                 try handler.perform([self.classificationRequest])
             } catch {
                 print("Failed to perform classification request: \(error.localizedDescription)")
+                self.stopLoading()
             }
         }
     }

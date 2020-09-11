@@ -52,6 +52,10 @@
                                     <constraint firstItem="aYR-Ws-KY9" firstAttribute="leading" secondItem="pkv-mA-Hj3" secondAttribute="leading" id="XKT-fx-GwC"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="N4N-qj-Glh">
+                                <rect key="frame" x="169" y="392.66666666666669" width="37" height="37"/>
+                                <color key="color" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKK-QX-Dsy">
                                 <rect key="frame" x="147.66666666666666" y="620" width="80" height="60"/>
                                 <constraints>
@@ -74,7 +78,9 @@
                             <constraint firstItem="pkv-mA-Hj3" firstAttribute="top" secondItem="pKK-QX-Dsy" secondAttribute="bottom" constant="32" id="8us-34-Ys1"/>
                             <constraint firstItem="pkv-mA-Hj3" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="100/812" id="8zj-UQ-eoE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PRC-jM-4Hi" secondAttribute="trailing" id="93N-Dt-3zi"/>
+                            <constraint firstItem="N4N-qj-Glh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="CKB-Ct-XrB"/>
                             <constraint firstItem="PRC-jM-4Hi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FC0-D8-HMo"/>
+                            <constraint firstItem="N4N-qj-Glh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GCL-39-SPq"/>
                             <constraint firstItem="pkv-mA-Hj3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MHP-A4-0Eh"/>
                             <constraint firstItem="PRC-jM-4Hi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aij-Hg-jJy"/>
                             <constraint firstAttribute="bottom" secondItem="PRC-jM-4Hi" secondAttribute="bottom" id="f7P-C0-aVA"/>
@@ -87,6 +93,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="N4N-qj-Glh" id="TZM-S3-4J2"/>
                         <outlet property="cameraButton" destination="pKK-QX-Dsy" id="n3d-VI-h6G"/>
                         <outlet property="hotdogView" destination="cT5-GR-hm6" id="bqV-yz-OGq"/>
                         <outlet property="imageView" destination="PRC-jM-4Hi" id="oLN-Kv-Xxd"/>
