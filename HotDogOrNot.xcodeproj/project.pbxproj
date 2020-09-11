@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		86305A62250B987A00C8E012 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86305A61250B987A00C8E012 /* UIImage+Extensions.swift */; };
+		86305A65250BE1A100C8E012 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 86305A64250BE1A100C8E012 /* SqueezeNet.mlmodel */; };
 		86626151250B8A6E001B6166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86626150250B8A6E001B6166 /* AppDelegate.swift */; };
 		86626153250B8A6E001B6166 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86626152250B8A6E001B6166 /* SceneDelegate.swift */; };
 		86626155250B8A6E001B6166 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86626154250B8A6E001B6166 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		86305A61250B987A00C8E012 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		86305A64250BE1A100C8E012 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		8662614D250B8A6E001B6166 /* HotDogOrNot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotDogOrNot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86626150250B8A6E001B6166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86626152250B8A6E001B6166 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86305A63250BE18F00C8E012 /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				86305A64250BE1A100C8E012 /* SqueezeNet.mlmodel */,
+			);
+			path = MLModels;
+			sourceTree = "<group>";
+		};
 		86626144250B8A6E001B6166 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		86626165250B8B95001B6166 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				86305A63250BE18F00C8E012 /* MLModels */,
 				8662616A250B950E001B6166 /* Extensions */,
 				86626154250B8A6E001B6166 /* ViewController.swift */,
 				86626156250B8A6E001B6166 /* Main.storyboard */,
@@ -169,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86626155250B8A6E001B6166 /* ViewController.swift in Sources */,
+				86305A65250BE1A100C8E012 /* SqueezeNet.mlmodel in Sources */,
 				86626151250B8A6E001B6166 /* AppDelegate.swift in Sources */,
 				86305A62250B987A00C8E012 /* UIImage+Extensions.swift in Sources */,
 				86626167250B9191001B6166 /* CGImagePropertyOrientation+Extensions.swift in Sources */,
